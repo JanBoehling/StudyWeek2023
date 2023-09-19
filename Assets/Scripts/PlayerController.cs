@@ -4,24 +4,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Fields for movement")]
-    [SerializeField][Range(0, 1000)] private float baseMovementSpeed = 500f;
+    [SerializeField][Range(0, 1000)] private float baseMovementSpeed = 250f;
     [SerializeField][Range(0, 10)] private float runSpeedMultiplier = 2f;
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
-    private float speed;
-    private Vector3 movementDirection;
 
     [Header("Fields for sneaking")]
     [SerializeField] private KeyCode sneakKey = KeyCode.LeftControl;
     [SerializeField] private float sneakSpeedMultiplier = .5f;
-    public bool IsSneaking { get; private set; }
 
     [Header("Fields for jumping")]
     [SerializeField][Range(0, 100)] private float jumpPower = 5f;
     [SerializeField] private LayerMask groundCheckMask;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
-
-    private Rigidbody playerRigidbody;
-    private Collider playerCollider;
 
     [Header("Fields for looking")]
     [SerializeField] private float xSensitivity = 10f;
@@ -29,16 +23,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxLookAngle = 80f;
 
     [Header("Fields for interacting")]
-    [SerializeField] private float interactDistance = 5f;
-    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] protected float interactDistance = 5f;
+    [SerializeField] protected KeyCode interactKey = KeyCode.E;
 
-    private Camera cam;
+    public bool IsSneaking { get; private set; }
+
+    protected Camera cam;
     private Transform camTransform;
+
+    private Rigidbody playerRigidbody;
+    private Collider playerCollider;
+
+    private float speed;
+    protected Vector3 movementDirection;
 
     private float xRotation;
     private float yRotation;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerCollider = GetComponent<Collider>();
@@ -55,9 +57,9 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        CalculateMovementDirection();
+        CalculateMovementDirection(ref movementDirection);
         CalculateMovementSpeed();
         CalculateRotation();
         Rotate();
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
         IsSneaking = Input.GetKey(sneakKey);
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Move();
     }
@@ -73,7 +75,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Calculates the movement direction based on the players input.
     /// </summary>
-    private void CalculateMovementDirection()
+    protected virtual void CalculateMovementDirection(ref Vector3 movementDirection)
     {
         float xDirection = Input.GetAxisRaw("Horizontal");
         float yDirection = Input.GetAxisRaw("Vertical");
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        if (!IsGrounded(groundCheckMask)) return;
+        if (!IsGrounded(playerCollider, groundCheckMask)) return;
 
         playerRigidbody.AddForce(jumpPower * Vector3.up, ForceMode.Impulse);
     }
@@ -115,7 +117,7 @@ public class PlayerController : MonoBehaviour
     /// Checks if the player touches the ground.
     /// </summary>
     /// <returns>True, if the player touches the ground, otherwise false.</returns>
-    private bool IsGrounded(LayerMask mask)
+    private bool IsGrounded(Collider playerCollider, LayerMask mask)
     {
         var playerTransform = transform.position;
         var origin = new Vector3(playerTransform.x, playerTransform.y - playerCollider.bounds.extents.y, playerTransform.z);
@@ -155,7 +157,7 @@ public class PlayerController : MonoBehaviour
     /// <typeparam name="T">The component to check for</typeparam>
     /// <param name="distance">The distance how long the ray should be shot</param>
     /// <returns>Information about the first hit object and the component that was testet for. Returns null, if nothing was found.</returns>
-    private (RaycastHit hit, T target)? LookAt<T>(float distance)
+    protected (RaycastHit hit, T target)? LookAt<T>(float distance)
     {
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         var hit = new RaycastHit[1];

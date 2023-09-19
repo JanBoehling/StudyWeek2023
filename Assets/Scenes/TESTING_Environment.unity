@@ -7147,6 +7147,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 711889875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &724282204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7773620717876173943, guid: e1b305b6e9d0c3a4ab004759049d0267,
+    type: 3}
+  m_PrefabInstance: {fileID: 2869255803761917083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &724282211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724282204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090ee37f33101494499c4d92c154a7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMovementSpeed: 250
+  runSpeedMultiplier: 2
+  sprintKey: 304
+  sneakKey: 306
+  sneakSpeedMultiplier: 0.5
+  jumpPower: 5
+  groundCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpKey: 32
+  xSensitivity: 10
+  ySensitivity: 10
+  maxLookAngle: 80
+  interactDistance: 5
+  interactKey: 101
+  splitScreenViewport:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.5
+    height: 1
+  forwardKey: 119
+  backwardKey: 115
+  leftKey: 97
+  rightKey: 100
 --- !u!1001 &724841984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21801,10 +21844,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3695712371271084823, guid: e1b305b6e9d0c3a4ab004759049d0267, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7773620717876173943, guid: e1b305b6e9d0c3a4ab004759049d0267,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 724282211}
   m_SourcePrefab: {fileID: 100100000, guid: e1b305b6e9d0c3a4ab004759049d0267, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
