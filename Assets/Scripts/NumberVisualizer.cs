@@ -9,7 +9,7 @@ public class NumberVisualizer : MonoBehaviour
 {
     private TextMeshProUGUI numberShower;
     private int maxNumbers = 7;
-    public int currentNumber;
+    public int currentNumber = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,6 @@ public class NumberVisualizer : MonoBehaviour
     public void DeleteWrittenText()
     {
         numberShower.text = "";
-        currentNumber = 0;
+        currentNumber = -1;
     }
 }

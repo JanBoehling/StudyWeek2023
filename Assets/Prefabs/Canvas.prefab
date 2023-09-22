@@ -2208,6 +2208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizer: {fileID: 1013503569974560281}
+  correctCode: 06000000090000000100000005000000
+  typedCode: 
 --- !u!1 &5655583060348123557
 GameObject:
   m_ObjectHideFlags: 0
