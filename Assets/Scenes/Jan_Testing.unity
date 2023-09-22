@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 676805331}
   - component: {fileID: 676805330}
   - component: {fileID: 676805334}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,9 +238,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 676805329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a144aa95707134ebd3b424ae58a6fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 496e4ef3fb5dbf74d836ceaf9c24e952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OnInteractEvent>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 676805334}
+        m_TargetAssemblyTypeName: Draggable, Assembly-CSharp
+        m_MethodName: ToggleDrag
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2002737416}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  playerPositionOffset: 1
 --- !u!1 &763693235
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +632,7 @@ GameObject:
   - component: {fileID: 2002737419}
   - component: {fileID: 2002737418}
   - component: {fileID: 2002737417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

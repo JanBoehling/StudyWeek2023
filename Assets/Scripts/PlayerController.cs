@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour
         }
         camTransform = cam.transform;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     private void Update()
@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        var interacted = LookAt<Interactable>(interactDistance);
-        interacted?.target.Interact();
+        var interacted = LookAt<IInteractable>(interactDistance);
+        interacted?.target.Interact(this);
     }
 
     /// <summary>

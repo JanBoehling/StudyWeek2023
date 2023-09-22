@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IInteractable
 {
-    public UnityEvent onInteractEvent;
+    [field: SerializeField] public UnityEvent<Object> OnInteractEvent { get; set; }
 
     private void Awake()
     {
-         onInteractEvent = new();
+        OnInteractEvent = new();
     }
 
-    public void Interact()
+    public void Interact(UnityEngine.Object ctx)
     {
-        onInteractEvent?.Invoke();
+        OnInteractEvent?.Invoke(ctx);
     }
 }
