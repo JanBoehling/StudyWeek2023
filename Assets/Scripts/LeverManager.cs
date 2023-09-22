@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeverManager : MonoBehaviour
 {
-    private bool[] levers = new bool[4];
+    public bool[] levers = new bool[4];
     
 
     public void FlipLever(int index)

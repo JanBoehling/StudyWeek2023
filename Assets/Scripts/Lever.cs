@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Lever : MonoBehaviour
+public class Lever : MonoBehaviour, IInteractable
 {
     [SerializeField] LeverManager managerLever;
-    private float leverRotation = 12f;
-    private bool leverIsTurned = true;
+    [SerializeField] GameObject leverStick;
+    [SerializeField] int leverIndexer;
+    private const float leverRotation = 12f;
+    private Bounds bounds;
 
-    
-
-    private void OnCollisionEnter(Collision collision)
+    private void Awake()
     {
-        if (collision.collider.CompareTag("Player") && leverIsTurned == true)
-        {
-            this.transform.Rotate(new Vector3(0f,0f,-leverRotation));
-            leverIsTurned = false;
+        bounds = leverStick.GetComponent<Collider>().bounds;
+    }
 
-        }
-        else if(collision.collider.CompareTag("Player") && leverIsTurned == false)
-        {
-            this.transform.Rotate(new Vector3(0f, 0f, leverRotation));
-            leverIsTurned = true;
-        }
+    public void Interact(Object ctx)
+    {
+        Vector3 pivot = transform.position;
+        pivot.y -= bounds.extents.y;
+        Debug.Log(pivot);
+        managerLever.FlipLever(leverIndexer);
+        leverStick.transform.RotateAround(pivot, Vector3.forward, managerLever.levers[leverIndexer] ? -leverRotation : leverRotation);
     }
 }
