@@ -2251,6 +2251,9 @@ MonoBehaviour:
   NumpadContainer: {fileID: 0}
   lockerClosed: {fileID: 0}
   lockerOpen: {fileID: 0}
+  onNumpadSuccessEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5655583060348123557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3142,6 @@ GameObject:
   - component: {fileID: 4995480695057921303}
   - component: {fileID: 4439644746913195977}
   - component: {fileID: 6747419379863795587}
-  - component: {fileID: 3506281880109601638}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3230,18 +3232,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3506281880109601638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8890868401358680212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbda141863f169f4a9e2cce287938844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8979229454663947835
 GameObject:
   m_ObjectHideFlags: 0

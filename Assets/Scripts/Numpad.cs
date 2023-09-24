@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class Numpad : MonoBehaviour
 {
@@ -13,8 +14,15 @@ public class Numpad : MonoBehaviour
     [SerializeField] private GameObject NumpadContainer;
     [SerializeField] private GameObject lockerClosed;
     [SerializeField] private GameObject lockerOpen;
+
+    [SerializeField] private UnityEvent onNumpadSuccessEvent;
+
     private int correctCodeIsTyped;
 
+    private void Awake()
+    {
+        onNumpadSuccessEvent = new();
+    }
 
     public void KeyWasPressed(int Number)
     {
@@ -61,6 +69,7 @@ public class Numpad : MonoBehaviour
         if (correctCodeIsTyped == 4)
         {
             Debug.Log("Open Locker");
+            onNumpadSuccessEvent?.Invoke();
             NumpadContainer.SetActive(false);
             GameManager.Instance.TogglePause();
 
