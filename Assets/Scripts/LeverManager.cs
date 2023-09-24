@@ -5,7 +5,8 @@ using UnityEngine;
 public class LeverManager : MonoBehaviour
 {
     public bool[] levers = new bool[4];
-    
+    [SerializeField] public bool[] RightLeverPattern = new bool[4];
+
 
     public void FlipLever(int index)
     {

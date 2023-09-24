@@ -8,7 +8,6 @@ public class Lever : MonoBehaviour, IInteractable
     [SerializeField] LeverManager managerLever;
     [SerializeField] GameObject leverStick;
     [SerializeField] int leverIndexer;
-    [SerializeField] private bool[] RightLeverPattern = new bool[4];
     private const float leverRotation = 12f;
     private Bounds bounds;
 
@@ -28,14 +27,15 @@ public class Lever : MonoBehaviour, IInteractable
         if (RightSwitchPattern())
         {
             //Open Door
+            Debug.Log("Door Opens");
         }
     }
 
     private bool RightSwitchPattern()
     {
-        for (int i = 0; i < RightLeverPattern.Length; i++)
+        for (int i = 0; i < managerLever.RightLeverPattern.Length; i++)
         {
-            if (RightLeverPattern[i] != managerLever.levers[i])
+            if (managerLever.RightLeverPattern[i] != managerLever.levers[i])
             {
                 return false;
             }
