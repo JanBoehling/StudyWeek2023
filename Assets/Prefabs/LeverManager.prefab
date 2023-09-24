@@ -64,6 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -161,6 +166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lever2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
         type: 3}
@@ -264,6 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -361,6 +376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lever1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1779172842966391291, guid: c15e1fa93c061514785cab80a8ef421e,
         type: 3}

@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        var interacted = LookAt<IInteractable>(interactDistance);
+        var interacted = LookAt<IInteractable>(interactDistance, LayerMask.GetMask("Interactable"));
         interacted?.target.Interact(this);
     }
 
@@ -168,11 +168,12 @@ public class PlayerController : MonoBehaviour
     /// <typeparam name="T">The component to check for</typeparam>
     /// <param name="distance">The distance how long the ray should be shot</param>
     /// <returns>Information about the first hit object and the component that was testet for. Returns null, if nothing was found.</returns>
-    private (RaycastHit hit, T target)? LookAt<T>(float distance)
+    private (RaycastHit hit, T target)? LookAt<T>(float distance, LayerMask mask)
     {
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         var hit = new RaycastHit[1];
-        Physics.RaycastNonAlloc(ray, hit, distance );
+        Physics.RaycastNonAlloc(ray, hit, distance, mask);
+        Debug.DrawRay(ray.origin, ray.direction, Color.red, 1f);
 
         if (!hit[0].collider) return null;
 
