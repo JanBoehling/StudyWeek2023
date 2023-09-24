@@ -4,31 +4,31 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NumberVisualizer : MonoBehaviour
 {
     private TextMeshProUGUI numberShower;
     private int maxNumbers = 7;
-    public int currentNumber = -1;
+    public int CurrentNumber = -1;
 
-    // Start is called before the first frame update
     void Start()
     {
         numberShower = GetComponent<TextMeshProUGUI>(); 
     }
 
-    public void NumberPressed(int Number)
+    public void NumberPressed(int number)
     {
-        currentNumber++;
-        if ( currentNumber <= maxNumbers)
+        CurrentNumber++;
+        if ( CurrentNumber <= maxNumbers)
         {
-            numberShower.text += Number.ToString();
+            numberShower.text += number.ToString();
         }
     }
 
     public void DeleteWrittenText()
     {
         numberShower.text = "";
-        currentNumber = -1;
+        CurrentNumber = -1;
     }
 }
