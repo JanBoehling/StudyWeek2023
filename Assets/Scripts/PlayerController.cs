@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float interactDistance = 5f;
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
+    [Header("Fields for time travel")]
+    [SerializeField] private KeyCode timeTravelKey = KeyCode.F;
+
     public bool IsSneaking { get; private set; }
 
     private Camera cam;
@@ -70,6 +73,8 @@ public class PlayerController : MonoBehaviour
         IsSneaking = Input.GetKey(sneakKey);
 
         if (Input.GetKeyDown(interactKey)) Interact();
+
+        if (Input.GetKeyDown(timeTravelKey)) GameManager.Instance.ToggleFutureScene();
     }
 
     private void FixedUpdate()
