@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsPaused) return;
+
         CalculateMovementDirection();
         CalculateMovementSpeed();
         CalculateRotation();

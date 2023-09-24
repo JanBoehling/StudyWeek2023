@@ -32,9 +32,7 @@ public class Numpad : MonoBehaviour
         if (typedCode.Count == 0)
         {
             NumpadContainer.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Time.timeScale = 1;
+            GameManager.Instance.TogglePause();
         }
     }
 
@@ -61,9 +59,7 @@ public class Numpad : MonoBehaviour
         {
             Debug.Log("Open Locker");
             NumpadContainer.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Time.timeScale = 1;
+            GameManager.Instance.TogglePause();
 
             lockerClosed.SetActive(false);
             lockerOpen.SetActive(true);
