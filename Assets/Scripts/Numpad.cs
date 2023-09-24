@@ -26,20 +26,23 @@ public class Numpad : MonoBehaviour
 
     public void DeletePresses()
     {
-        visualizer.DeleteWrittenText();
-        typedCode.Clear();
-
         if (typedCode.Count == 0)
         {
             NumpadContainer.SetActive(false);
             GameManager.Instance.TogglePause();
         }
+        visualizer.DeleteWrittenText();
+        typedCode.Clear();
     }
 
     public void RightCodeSequenze()
     {
         for (int i = 0; i < correctCode.Count; i++)
         {
+            if (typedCode.Count == 0)
+            {
+                break;
+            }
             int correctCodeInv = correctCode[i];
             int typedCodeInv = typedCode[i];
 
