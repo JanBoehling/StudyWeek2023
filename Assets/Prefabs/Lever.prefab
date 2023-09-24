@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7237836134348526487}
-  - component: {fileID: 1019410305740484098}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Untagged
@@ -30,27 +29,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2081881741919490377}
   - {fileID: 4965511116768619008}
   - {fileID: 3507148885987282087}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1019410305740484098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182626531379616401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c114d0721ff9041abb1bdaddef1118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leverHandle: {fileID: 4965511116768619008}
-  leverPivot: {fileID: 2081881741919490377}
-  rotateAngle: 60
-  lever: 0
 --- !u!1 &1328870147181222951
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +44,7 @@ GameObject:
   - component: {fileID: 3507148885987282087}
   - component: {fileID: 1802758483063448298}
   - component: {fileID: 1819304859558106965}
+  - component: {fileID: 5919742062894677330}
   m_Layer: 0
   m_Name: box
   m_TagString: Untagged
@@ -134,6 +117,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5919742062894677330
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328870147181222951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9009893830714642796, guid: b78e5e8addeb5094e81a7fbf7e1e0c05, type: 3}
 --- !u!1 &4695429803922185770
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +150,8 @@ GameObject:
   - component: {fileID: 4965511116768619008}
   - component: {fileID: 7980263486488241583}
   - component: {fileID: 1914940256594328188}
+  - component: {fileID: 1099277245355897810}
+  - component: {fileID: 8432448615240302599}
   m_Layer: 0
   m_Name: lever
   m_TagString: Untagged
@@ -217,34 +224,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5313819591485456456
-GameObject:
+--- !u!64 &1099277245355897810
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2081881741919490377}
-  m_Layer: 0
-  m_Name: pivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2081881741919490377
-Transform:
+  m_GameObject: {fileID: 4695429803922185770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4188492731819274950, guid: b78e5e8addeb5094e81a7fbf7e1e0c05, type: 3}
+--- !u!114 &8432448615240302599
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5313819591485456456}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7237836134348526487}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 4695429803922185770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd5535be580ef84e8acb200daf6061c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerLever: {fileID: 0}
+  leverStick: {fileID: 4695429803922185770}
+  leverIndexer: 0
