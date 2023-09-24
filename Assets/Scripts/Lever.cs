@@ -7,9 +7,12 @@ public class Lever : MonoBehaviour, IInteractable
 {
     [SerializeField] LeverManager managerLever;
     [SerializeField] GameObject leverStick;
+    [SerializeField] GameObject doorOpener;
+    [SerializeField] GameObject doorParent;
     [SerializeField] int leverIndexer;
     private const float leverRotation = 12f;
     private Bounds bounds;
+
 
     private void Awake()
     {
@@ -26,6 +29,8 @@ public class Lever : MonoBehaviour, IInteractable
 
         if (RightSwitchPattern())
         {
+            doorParent.SetActive(false);
+            doorOpener.SetActive(true);
             //Open Door
             Debug.Log("Door Opens");
         }

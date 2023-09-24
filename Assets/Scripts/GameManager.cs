@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject futureScene;
     [SerializeField] private GameObject pastScene;
 
+    public bool KeyPickedUp { get; private set; }
+
     public bool IsPaused { get; private set; }
     public bool IsFutureActive { get; private set; }
     public bool IsInterceptingTimeTravel { get; set; }
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour
         pastScene.SetActive(IsFutureActive);
 
         IsFutureActive = !IsFutureActive;
+    }
+
+    public void PickUpKey()
+    {
+        KeyPickedUp = true;
     }
 }
 
