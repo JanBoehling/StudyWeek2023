@@ -6465,7 +6465,7 @@ GameObject:
   - component: {fileID: 1850288120}
   - component: {fileID: 1850288119}
   - component: {fileID: 1850288118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Numpad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
