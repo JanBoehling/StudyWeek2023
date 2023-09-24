@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607296674684869673}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -164,6 +164,7 @@ MonoBehaviour:
   maxLookAngle: 80
   interactDistance: 2
   interactKey: 101
+  timeTravelKey: 102
 --- !u!1001 &3427730313503409412
 PrefabInstance:
   m_ObjectHideFlags: 0
