@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public bool KeyPickedUp { get; private set; }
 
+    public bool ExitKeyPickedUp { get; private set; }
+
     public bool IsPaused { get; private set; }
     public bool IsFutureActive { get; private set; }
     public bool IsInterceptingTimeTravel { get; set; }
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
     public void PickUpKey()
     {
         KeyPickedUp = true;
+    }
+
+    public void PickedUpExitKey()
+    {
+        ExitKeyPickedUp = true;
     }
 }
 

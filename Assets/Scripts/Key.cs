@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Key : MonoBehaviour, IInteractable
 {
-
     public void Interact(Object ctx)
     {
         GameManager.Instance.PickUpKey();
