@@ -10,6 +10,9 @@ public class Numpad : MonoBehaviour
     [SerializeField] NumberVisualizer visualizer;
     [SerializeField] private List<int> correctCode = new List<int>();
     [SerializeField] private List<int> typedCode = new List<int>();
+    [SerializeField] private GameObject NumpadContainer;
+    [SerializeField] private GameObject lockerClosed;
+    [SerializeField] private GameObject lockerOpen;
     private int correctCodeIsTyped;
 
 
@@ -24,7 +27,15 @@ public class Numpad : MonoBehaviour
     public void DeletePresses()
     {
         visualizer.DeleteWrittenText();
-        typedCode.Clear(); 
+        typedCode.Clear();
+
+        if (typedCode.Count == 0)
+        {
+            NumpadContainer.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+        }
     }
 
     public void RightCodeSequenze()
@@ -49,6 +60,13 @@ public class Numpad : MonoBehaviour
         if (correctCodeIsTyped == 4)
         {
             Debug.Log("Open Locker");
+            NumpadContainer.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
+
+            lockerClosed.SetActive(false);
+            lockerOpen.SetActive(true);
         }
     }
 }
