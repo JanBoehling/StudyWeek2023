@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsPaused { get; private set; }
     public bool IsFutureActive { get; private set; }
+    public bool IsInterceptingTimeTravel { get; set; }
 
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     public void ToggleFutureScene()
     {
+        if (IsInterceptingTimeTravel) return;
+
         futureScene.SetActive(!IsFutureActive);
         pastScene.SetActive(IsFutureActive);
 
