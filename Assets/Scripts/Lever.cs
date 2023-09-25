@@ -25,22 +25,22 @@ public class Lever : MonoBehaviour, IInteractable
         pivot.y -= bounds.extents.y;
         Debug.Log(pivot);
         managerLever.FlipLever(leverIndexer);
-        leverStick.transform.RotateAround(pivot, Vector3.forward, managerLever.levers[leverIndexer] ? -leverRotation : leverRotation);
+        leverStick.transform.RotateAround(pivot, Vector3.forward, managerLever.Levers[leverIndexer] ? -leverRotation : leverRotation);
 
-        if (RightSwitchPattern())
-        {
-            doorParent.SetActive(false);
-            doorOpener.SetActive(true);
-            //Open Door
-            Debug.Log("Door Opens");
-        }
+        //if (RightSwitchPattern())
+        //{
+        //    doorParent.SetActive(false);
+        //    doorOpener.SetActive(true);
+        //    //Open Door
+        //    Debug.Log("Door Opens");
+        //}
     }
 
     private bool RightSwitchPattern()
     {
         for (int i = 0; i < managerLever.RightLeverPattern.Length; i++)
         {
-            if (managerLever.RightLeverPattern[i] != managerLever.levers[i])
+            if (managerLever.RightLeverPattern[i] != managerLever.Levers[i])
             {
                 return false;
             }

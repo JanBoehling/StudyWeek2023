@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject futureScene;
     [SerializeField] private GameObject pastScene;
 
-    public bool KeyPickedUp { get; private set; }
+    [field: SerializeField] public bool KeyPickedUp { get; private set; }
 
-    public bool ExitKeyPickedUp { get; private set; }
+    [field: SerializeField] public bool ExitKeyPickedUp { get; private set; }
 
     public bool IsPaused { get; private set; }
     public bool IsFutureActive { get; private set; }
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        pastScene.SetActive(!IsFutureActive);
         futureScene.SetActive(IsFutureActive);
     }
 

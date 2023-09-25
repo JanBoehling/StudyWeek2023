@@ -50,6 +50,14 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
+    public static void StopAll()
+    {
+        foreach (var item in FindObjectsByType<AudioSource>(FindObjectsSortMode.None))
+        {
+            item.Stop();
+        }
+    }
+
     #region Playing local audio set
     /// <summary>
     /// Plays a random audio clip from the local audio set.

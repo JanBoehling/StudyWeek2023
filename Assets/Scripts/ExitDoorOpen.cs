@@ -1,18 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitDoorOpen : MonoBehaviour
 {
-    [SerializeField] GameObject doorOpen;
-    [SerializeField] GameObject doorParent;
+    [SerializeField] private float maxOpenAngle = 140f;
+    [SerializeField] private GameObject endGameTeleport;
+    private bool isDoorOpened;
 
-    private void OnCollisionEnter(Collision collision)
+    public void OpenDoor()
     {
-        if (collision.collider.CompareTag("Player") && GameManager.Instance.ExitKeyPickedUp == true)
+        if (!GameManager.Instance.ExitKeyPickedUp || isDoorOpened) return;
+        isDoorOpened = true;
+        AudioPlayer.StopAll();
+
+        StartCoroutine(RotateDoor(maxOpenAngle));
+        endGameTeleport.SetActive(true);
+    }
+
+    private IEnumerator RotateDoor(float maxAngle, float step = .1f)
+    {
+        var wait = new WaitForSeconds(step);
+        
+        while (true)
         {
-            doorOpen.SetActive(true);
-            Destroy(doorParent);
+            transform.RotateAroundLocal(Vector3.up, step);
+
+            if (transform.rotation.eulerAngles.y > maxAngle) yield break;
+
+            yield return wait;
         }
     }
 }
